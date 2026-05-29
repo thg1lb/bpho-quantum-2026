@@ -42,6 +42,11 @@ def random_walk():
         
 def visuals():
         plt.plot(xPositions, yPositions)
+        plt.title("Model of a random walk of N steps of size s.")
+        plt.xlabel("x-axis")
+        plt.ylabel("y-axis")
+        plt.grid(linestyle = '--')
+        
         plt.show()
         
         
