@@ -3,13 +3,13 @@
 # theta from the horizontal chosen from a uniform distribution between 0 and
 # 2pi radians.
 
-import random, matplotlib, math
+import random, matplotlib.pyplot as plt, math, numpy
 
 n = int(input("Please enter the number of steps: "))
 s = int(input("Please enter the step size: "))
 
-xPositions = []
-yPositions = []
+xPositions = [0]
+yPositions = [0]
 
 def random_walk():
     
@@ -33,8 +33,13 @@ def random_walk():
         print(current_Xpos)
         print(current_Ypos)
         
+def visuals():
+        plt.plot(xPositions, yPositions)
+        plt.show()
+        
         
 random_walk()
+visuals()
         
     
     
