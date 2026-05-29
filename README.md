@@ -1,8 +1,7 @@
-# compChallenge2026
 BPhO Computational Challenge 2026 Submission
 
-Preliminary Idea: 
-- Streamlit interactive website, one page per task
-- Do derivation separately (eg. notepad) then implement in python
+to-do:
+- figure out brownian motion equations
+- figure out matplotlib display
 
-Number of hours commited (so far): 0
+Number of hours commited (so far): 2
