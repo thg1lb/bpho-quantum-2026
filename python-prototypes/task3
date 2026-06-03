@@ -1,0 +1,12 @@
+import matplotlib.pyplot as plt, math
+from scipy.integrate import quad
+
+def planckSpectrum():
+    
+    kb = 1.381e-23
+    h = 6.626e-34
+    c = 2.998e8
+    
+    sigma = ((2*(math.pi)**5)(kb**4))/(15(c**2)(h**3))
+    
+    
