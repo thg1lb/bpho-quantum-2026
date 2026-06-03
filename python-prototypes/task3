@@ -12,10 +12,12 @@ def planckSpectrum():
     wavelengths = np.linspace(0, 2500, 100)
     
     # equations
-    sigma = ((2*(np.pi)**5)(kb**4))/(15(c**2)(h**3))
+    # sigma = ((2*(np.pi)**5)(kb**4))/(15(c**2)(h**3))
     exponentThing = (h*c)/(wavelengths*kb*temps)
     B = ((2*h*(c**2))/wavelengths**5)(1/exponentThing - 1)
-    I = quad
+    
+
+        
     
     
     
