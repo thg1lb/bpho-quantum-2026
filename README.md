@@ -7,6 +7,7 @@ to-do:
 - task 3
 - task 4
 - task 5
+
 ^^ do these first because ib physics familiarity
 
 Number of hours commited (so far): 7
