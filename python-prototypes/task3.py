@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt, numpy as np
 from scipy.integrate import quad
 
+# constant definitions
+kb = 1.381e-23
+h = 6.626e-34
+c = 2.998e8
+R = 8.314  
+
 def planckSpectrum():
-    
-        # constant definitions
-        kb = 1.381e-23
-        global h 
-        h = 6.626e-34
-        c = 2.998e8
         
         temps = np.array([4000, 5000, 6000])
         wavelengths = np.linspace(100e-9, 2500e-9, 100)
@@ -26,10 +26,8 @@ def planckSpectrum():
     
     
 def einsteinModel():
-    
-    R = 8.314  
      
-    temps = np.linspace(0, 800, 800)
+    temps = np.linspace(10, 800, 800)
      
     einsteinFreqs = {
         "Au": 0.2855e13,
@@ -40,14 +38,17 @@ def einsteinModel():
         "Si": 1.0832e13,
         "C": 3.7451e13
     }
-        
-plt.show()
     
+    for material, f_E in einsteinFreqs.items():
+        x = ((h)*f_E)/(kb*temps)
+        C = ((3*R)*(x**2)*(np.exp(x)))/((np.exp(x) - 1)**2)
+        
+        plt.plot(temps, C, label=material)
+    
+plt.figure()
 planckSpectrum()
-    
 
-        
-    
-    
-    
-    
+plt.figure()
+einsteinModel()
+
+plt.show()
