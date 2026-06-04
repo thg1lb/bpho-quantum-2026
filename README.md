@@ -10,4 +10,4 @@ to-do:
 
 ^^ do these first because ib physics familiarity
 
-Number of hours commited (so far): 13
+Number of hours committed (so far): 13
