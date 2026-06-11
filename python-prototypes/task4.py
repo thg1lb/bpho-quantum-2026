@@ -1,5 +1,9 @@
 import matplotlib.pyplot as plt, numpy as np
 
+h = 6.626e-34
+e = 1.602176620898e-19
+freqs = np.linspace()
+
 workFunctions = {
     "Ag": 4.3,
     "Al": 4.3,
@@ -11,4 +15,8 @@ workFunctions = {
     "Ni": 4.6,
     "Na": 2.4
 }
+
+
+
+
 

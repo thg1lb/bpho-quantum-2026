@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import matplotlib.pyplot as plt, numpy as np
 from scipy.integrate import quad
 
@@ -52,7 +51,6 @@ planckSpectrum()
     
     
     
-=======
 import matplotlib.pyplot as plt, numpy as np
 from scipy.integrate import quad
 
@@ -107,4 +105,3 @@ plt.figure()
 einsteinModel()
 
 plt.show()
->>>>>>> c123734fefc9040288e303039c7ae02029bd24ff
