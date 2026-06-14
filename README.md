@@ -1,12 +1,12 @@
-### BPhO Computational Challenge 2026 Submission
+# BPhO Computational Challenge 2026 Submission
 
-# completed (base model no polish):
+## completed (base model no polish):
 - task 1
 - task 3
 - task 4
 - task 5
 
-# to-do:
+## to-do:
 - task 6
 - task 9
 - task 7 (code part)
@@ -19,4 +19,4 @@
 - final boss: task 10
 
 
-## Number of hours committed (so far): ~25
+### Number of hours committed (so far): ~25
