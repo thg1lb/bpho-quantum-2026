@@ -12,12 +12,13 @@ def planckSpectrum():
         temps = np.array([4000, 5000, 6000])
         wavelengths = np.linspace(100e-9, 2500e-9, 100)
         
-        # equations
-        # sigma = ((2*(np.pi)**5)(kb**4))/(15(c**2)(h**3))
+        # loop through each temp and calculate intensity
         for T in temps:
             
+            # formulae from BPho CompPhys slides
             exponentThing = (h*c)/(wavelengths*kb*T)
             B = ((2*h*(c**2))/wavelengths**5)*(1/(np.exp(exponentThing) - 1))
+            
             plt.plot(wavelengths*1e9, B, label=f"T = {T} K")  
             plt.xlabel("Wavelength / nm")
             plt.ylabel("Irradiance / Wm^-2 / nm")
@@ -39,7 +40,10 @@ def einsteinModel():
         "C": 3.7451e13
     }
     
+    # loop through materials and calculate 
     for material, f_E in einsteinFreqs.items():
+        
+        # formulae from BPho CompPhys slides (may need to fix vars)
         x = ((h)*f_E)/(kb*temps)
         C = ((3*R)*(x**2)*(np.exp(x)))/((np.exp(x) - 1)**2)
         

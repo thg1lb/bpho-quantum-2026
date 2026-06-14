@@ -2,6 +2,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt, numpy as np
 
+# constant definitions
 e0 = 8.8418782e-12
 e = 1.602176620898e-19
 h = 6.626e-34
@@ -18,20 +19,28 @@ spectralLines = {
      
 }
 
+# loop through dictionary
 for spectralLine, m in spectralLines.items():
+    
+    # arrays to store values needed for plotting
     wavelengthsNm = []
     energiesEv = []
     
- 
+    # loop through emission transitions from n to m
+    # where m is the fixed lower level and n is the variable upper level
     for n in range (m+1, 15):
+    
+    # formulae from BPho CompPhys slides
      wavelength = ((8*(e0**2)*(h**3)*c)/(massE*(e**4)))*(((1/(m**2))-(1/(n**2)))**-1)
      wavelengthInNm = wavelength * 1e9
      
      energy = ((h*c)/wavelength) / e
      
+     # append calculated values to arrays (allows us to plot all values at once)
      wavelengthsNm.append(wavelengthInNm)
      energiesEv.append(energy)
      
+    # plotting (+ labels, etc...)
     plt.scatter(wavelengthsNm, energiesEv, label=spectralLine, linestyle="--")
     plt.title("Bohr model of Hydrogenic atom photon emissions: Z = 1")
     plt.xlabel("wavelength (nm)")
