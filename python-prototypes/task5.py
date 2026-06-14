@@ -19,8 +19,24 @@ spectralLines = {
 }
 
 for spectralLine, m in spectralLines.items():
+    wavelengthsNm = []
+    energiesEv = []
+    
  
- for n in range (m+1, 15):
+    for n in range (m+1, 15):
      wavelength = ((8*(e0**2)*(h**3)*c)/(massE*(e**4)))*(((1/(m**2))-(1/(n**2)))**-1)
-     wavelengthNm = wavelength * 1e9
+     wavelengthInNm = wavelength * 1e9
+     
+     energy = ((h*c)/wavelength) / e
+     
+     wavelengthsNm.append(wavelengthInNm)
+     energiesEv.append(energy)
+     
+    plt.scatter(wavelengthsNm, energiesEv, label=spectralLine, linestyle="--")
+    plt.title("Bohr model of Hydrogenic atom photon emissions: Z = 1")
+    plt.xlabel("wavelength (nm)")
+    plt.ylabel("Photon energy (eV)")
+    plt.legend() 
+     
+plt.savefig('task5.png')
     
