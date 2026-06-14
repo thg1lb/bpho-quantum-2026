@@ -5,9 +5,9 @@
 - task 3
 - task 4
 - task 5
+- task 6
 
 ## to-do:
-- task 6
 - task 9
 - task 7 (code part)
 - task 2
