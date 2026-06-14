@@ -33,5 +33,10 @@ for label, d in dValues.items():
     plt.ylabel("Ring radius / mm")
     plt.legend() 
     
-plt.savefig('task6.png')
+    # task 6a - checkers
+    xCheck = 1/np.sqrt(voltages)
+    yCheck = np.sin(phi)
+    plt.scatter(xCheck, yCheck, label=label)
 
+    
+plt.savefig('task6.png')
