@@ -6,17 +6,19 @@
 - task 4
 - task 5
 - task 6
+- task 9
 
 ## to-do:
-- task 9
+if:
 - task 7 (code part)
 - task 2
 
+elif:
 - task 7 (latex writeup)
 
+else:
 - start streamlit implementation + cleanup
 - task 8 (in streamlit)
 - final boss: task 10
 
-
-### Number of hours committed (so far): ~25
+### Number of hours committed (so far): ~27
