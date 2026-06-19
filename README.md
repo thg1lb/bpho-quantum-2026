@@ -7,10 +7,10 @@
 - task 5
 - task 6
 - task 9
+- task 7 (code part)
 
 ## to-do:
 if:
-- task 7 (code part)
 - task 2
 
 elif:
@@ -21,4 +21,4 @@ else:
 - task 8 (in streamlit)
 - final boss: task 10
 
-### Number of hours committed (so far): ~27
+### Number of hours committed (so far): ~30
