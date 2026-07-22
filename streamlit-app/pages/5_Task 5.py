@@ -2,6 +2,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
+st.title("Task 5: a graph of photon energy vs wavelength for photon emissions from hydrogen atoms due to transitions between electron energy levels.")
+
 # constant definitions
 e0 = 8.8418782e-12
 e = 1.602176620898e-19

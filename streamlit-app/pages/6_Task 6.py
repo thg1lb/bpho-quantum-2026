@@ -2,7 +2,10 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
-fig, ax = plt.subplots()
+st.title("Task 6: a computer model of the rings (of radius x) on the phosphor screen vs accelerating voltage V. Take r = 65mm and d = 0.123 nm or 0.213 nm. Range of V is 1 to 5 kV.")
+
+fig1, ax1 = plt.subplots()
+fig2, ax2 = plt.subplots()
 
 # constant definitions
 e = 1.602176620898e-19
@@ -29,10 +32,16 @@ for label, d in dValues.items():
     phi = np.arcsin(wavelengths/(2*d))
     x = r * np.sin(2*phi)
     
-    ax.plot(voltages/1000, x*1000, label=label)
-    ax.set_title("Rings of radius x vs accelerating voltage")
-    ax.set_xlabel("Voltage / kV")
-    ax.set_ylabel("Ring radius / mm")
-    ax.legend() 
+    ax1.plot(voltages/1000, x*1000, label=label)
+    ax1.set_title("Rings of radius x vs accelerating voltage")
+    ax1.set_xlabel("Voltage / kV")
+    ax1.set_ylabel("Ring radius / mm")
+    ax1.legend() 
+    
+    # checker graph
+    xCheck = 1/np.sqrt(voltages)
+    yCheck = np.sin(phi)
+    ax2.scatter(xCheck, yCheck, label=label)
 
-st.pyplot(fig)
+st.pyplot(fig1)
+st.pyplot(fig2)
