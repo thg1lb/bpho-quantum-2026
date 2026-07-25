@@ -2,6 +2,8 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
+st.title("Challenge #8: Create a visual calculator (e.g. some form of GUI or app – although a spreadsheet will suffice) of the Classical and Quantum mismatch probabilities, with the angles theta and phi as variables.")
+
 fig, ax = plt.subplots()
 
 theta = st.slider("theta / degrees", min_value=-90.0, max_value=90.0, value=-30.0, step=1.0)
