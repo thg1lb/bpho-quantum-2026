@@ -49,13 +49,13 @@ for frame in range(200):
         
         if (y - particleRadius <= 0 + particleRadius >= boxSize):
             velocities[i][1] *= -1
-            
+        
         positions[i][0] = np.clip(positions[i][0], particleRadius, (boxSize - particleRadius))
         positions[i][1] = np.clip(positions[i][1], particleRadius, (boxSize - particleRadius))
         
         circles[i].center = positions[i]
         
-        
+       
         
     plt.pause(0.02)
         
