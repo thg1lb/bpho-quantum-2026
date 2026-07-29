@@ -67,6 +67,13 @@ for frame in range(200):
         
         circles[i].center = positions[i]
         
+        # particle collision
+        largeX, largeY = largePosition
+        centerDistance = np.sqrt(((largeX - x)**2)+((largeY - y)**2))
+        
+        if centerDistance <= largeParticleradius + smallParticleRadius:
+            # *momentum equation*
+        
        
         
     plt.pause(0.02)
