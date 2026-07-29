@@ -1,6 +1,6 @@
 # BPhO Computational Challenge 2026 Submission
 
-## completed (base model no polish):
+## completed (AND in streamlit):
 - task 1
 - task 3
 - task 4
@@ -9,16 +9,13 @@
 - task 9
 - task 7 (code part)
 
-## to-do:
-if:
+## currently doing:
 - task 2
 
-elif:
-- task 7 (latex writeup)
-
-else:
-- start streamlit implementation + cleanup
+later:
 - task 8 (in streamlit)
+- task 7 (latex writeup)
 - final boss: task 10
+- proper cleanup/polish
 
-### Number of hours committed (so far): ~30
+### Number of hours committed (so far): ~45
