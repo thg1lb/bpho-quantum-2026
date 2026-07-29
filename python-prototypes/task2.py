@@ -3,9 +3,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # settings
-numOfParticles = 10
 boxSize = 10
-particleRadius = 0.2
+numOfParticles = 10
+smallParticleRadius = 0.2
+largeParticleradius = 0.8
+smallParticleMass = 1.0
+largeParticleMass = 10.0
+
 
 # drawing the circle(s)
 fig, ax = plt.subplots()
@@ -19,10 +23,17 @@ positions = []
 velocities = []
 circles = []
 
+largePosition = np.array([boxSize/2, boxSize/2], dtype=float)
+largeVelocity = np.array([0.0, 0.0])
+
 # looping particle creation
 for particle in range(numOfParticles):
-    x = np.random.uniform(particleRadius, boxSize - particleRadius)
-    y = np.random.uniform(particleRadius, boxSize - particleRadius)
+    
+    # axes
+    x = np.random.uniform(smallParticleRadius, boxSize - smallParticleRadius)
+    y = np.random.uniform(smallParticleRadius, boxSize - smallParticleRadius)
+    
+    largeCircle = Circle(largePosition, radius=largeParticleradius, fill=True)
     
     velocityX = np.random.uniform(-1, 1)
     velocityY = np.random.uniform(-1, 1)
@@ -30,9 +41,10 @@ for particle in range(numOfParticles):
     positions.append(np.array([x, y], dtype=float))
     velocities.append(np.array([velocityX, velocityY], dtype=float))
 
-    circle = Circle((x, y), radius=particleRadius, fill=True)
+    circle = Circle((x, y), radius=smallParticleRadius, fill=True)
     
     circles.append(circle)
+    ax.add_patch(largeCircle)
     ax.add_patch(circle)
     
 # movement
@@ -44,14 +56,14 @@ for frame in range(200):
         positions[i] += velocities[i] * dt
         x, y = positions[i]
         
-        if (x - particleRadius <= 0 + particleRadius >= boxSize):
+        if x - smallParticleRadius <= 0 + smallParticleRadius >= boxSize:
             velocities[i][0] *= -1
         
-        if (y - particleRadius <= 0 + particleRadius >= boxSize):
+        if y - smallParticleRadius <= 0 + smallParticleRadius >= boxSize:
             velocities[i][1] *= -1
         
-        positions[i][0] = np.clip(positions[i][0], particleRadius, (boxSize - particleRadius))
-        positions[i][1] = np.clip(positions[i][1], particleRadius, (boxSize - particleRadius))
+        positions[i][0] = np.clip(positions[i][0], smallParticleRadius, (boxSize - smallParticleRadius))
+        positions[i][1] = np.clip(positions[i][1], smallParticleRadius, (boxSize - smallParticleRadius))
         
         circles[i].center = positions[i]
         
