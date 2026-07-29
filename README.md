@@ -8,13 +8,13 @@
 - task 6
 - task 9
 - task 7 (code part)
+- task 2 (not in streamlit)
+- task 8
 
 ## currently doing:
-- task 2
+- task 7 (latex writeup)
 
 later:
-- task 8 (in streamlit)
-- task 7 (latex writeup)
 - final boss: task 10
 - proper cleanup/polish
 
