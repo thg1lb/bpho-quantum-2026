@@ -48,7 +48,7 @@ for particle in range(numOfParticles):
     ax.add_patch(circle)
     
 # movement
-dt = 0.05
+dt = 0.1
 
 for frame in range(200):
     
@@ -68,14 +68,15 @@ for frame in range(200):
         circles[i].center = positions[i]
         
         # particle collision
-        largeX, largeY = largePosition
-        centerDistance = np.sqrt(((largeX - x)**2)+((largeY - y)**2))
+        difference = positions[i] - largePosition
+        centerDistance = np.linalg.norm(difference)
         
-        if centerDistance <= largeParticleradius + smallParticleRadius:
-            # *momentum equation*
+        if 0 < centerDistance <= smallParticleRadius + largeParticleradius:
+            print("collision detected")
         
        
-        
+    largePosition += largeVelocity * dt
+    largeCircle.center = largePosition 
     plt.pause(0.02)
         
 
