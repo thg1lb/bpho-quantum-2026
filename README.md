@@ -1,4 +1,4 @@
-# BPhO Computational Challenge 2026 Submission
+<img width="530" height="539" alt="image" src="https://github.com/user-attachments/assets/3a8f3fa8-07ef-4767-ad53-bef2b6571fd2" /># BPhO Computational Challenge 2026 Submission
 
 ## completed (AND in streamlit):
 - task 1
@@ -12,7 +12,7 @@
 - task 8
 
 ## currently doing:
-- task 7 (latex writeup)
+- task 7 (latex writeup) https://overleaf.com/project/6a35700828a5ac93ba5d422f
 
   ^^ currently on assumptions section
 
