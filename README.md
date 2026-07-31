@@ -1,4 +1,4 @@
-<img width="530" height="539" alt="image" src="https://github.com/user-attachments/assets/3a8f3fa8-07ef-4767-ad53-bef2b6571fd2" /># BPhO Computational Challenge 2026 Submission
+# BPhO Computational Challenge 2026 Submission
 
 ## completed (AND in streamlit):
 - task 1
