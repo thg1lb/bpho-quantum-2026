@@ -14,8 +14,10 @@
 ## currently doing:
 - task 7 (latex writeup)
 
+  ^^ currently on assumptions section
+
 later:
 - final boss: task 10
 - proper cleanup/polish
 
-### Number of hours committed (so far): ~45
+### Number of hours committed (so far): ~46
