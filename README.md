@@ -1,4 +1,5 @@
 # BPhO Computational Challenge 2026 Submission
+> ***d-day: 10th august 2026***
 
 ## completed (AND in streamlit):
 - task 1
@@ -20,5 +21,3 @@ later:
 - proper cleanup/polish
 
 ### Number of hours committed (so far): ~50
-
-> ***d-day: 10th august 2026***
