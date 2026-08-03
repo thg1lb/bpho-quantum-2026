@@ -19,4 +19,6 @@
 later:
 - proper cleanup/polish
 
-### Number of hours committed (so far): ~46
+### Number of hours committed (so far): ~50
+
+# d-day: 10th august 2026
