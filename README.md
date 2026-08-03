@@ -21,4 +21,4 @@ later:
 
 ### Number of hours committed (so far): ~50
 
-# ***d-day: 10th august 2026***
+> ***d-day: 10th august 2026***
