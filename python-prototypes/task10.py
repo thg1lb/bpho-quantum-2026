@@ -3,6 +3,7 @@ matplotlib.use("TkAgg")
 from matplotlib import pyplot as plt
 import numpy as np
 from math import factorial
+from scipy.special import sph_harm_y
 
 # constants
 e0 = 8.8418782e-12
@@ -17,6 +18,10 @@ Z = 6 # proton number
 A = 12 # atomic mass in u
 n = 4 # principal quantum number
 L = 2 # angular momentum quantum number
+m = 0 # magnetic quantum number
+
+theta = np.linspace(0, np.pi, 200) 
+phi = np.linspace(0, 2*np.pi, 200)
 
 def radial():
     
@@ -42,4 +47,15 @@ def radial():
     plt.ylabel("probability density")
     plt.show()
     
-radial()
+def spherical():
+    phiGrid, thetaGrid = np.meshgrid(phi, theta)
+    Ylm = sph_harm_y(L, m, thetaGrid, phiGrid)
+    
+    angularDensity = np.abs(Ylm) ** 2
+    
+    fig, ax = plt.subplots(subplot_kw={"projection": "polar"})
+    mesh = ax.pcolormesh(phiGrid, thetaGrid, angularDensity)
+    fig.colorbar(mesh)
+    plt.show()
+    
+spherical()
