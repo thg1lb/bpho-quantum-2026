@@ -1,4 +1,5 @@
 # BPhO Computational Challenge 2026 Submission
+> ***d-day: 10th august 2026***
 
 ## completed (AND in streamlit):
 - task 1
@@ -13,11 +14,10 @@
 
 ## currently doing:
 - task 7 (latex writeup) https://overleaf.com/project/6a35700828a5ac93ba5d422f
-
   ^^ currently on assumptions section
+- final boss: task 10 (huge struggle)
 
 later:
-- final boss: task 10
 - proper cleanup/polish
 
-### Number of hours committed (so far): ~46
+### Number of hours committed (so far): ~50
