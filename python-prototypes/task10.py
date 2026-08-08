@@ -42,20 +42,9 @@ def radial():
 
     probabilityDensity = (np.abs(radial))**2
 
-    plt.plot(r, probabilityDensity)
-    plt.xlabel("radius / angstroms")
-    plt.ylabel("probability density")
-    plt.show()
     
-def spherical():
-    phiGrid, thetaGrid = np.meshgrid(phi, theta)
-    Ylm = sph_harm_y(L, m, thetaGrid, phiGrid)
     
-    angularDensity = np.abs(Ylm) ** 2
-    
-    fig, ax = plt.subplots(subplot_kw={"projection": "polar"})
-    mesh = ax.pcolormesh(phiGrid, thetaGrid, angularDensity)
-    fig.colorbar(mesh)
-    plt.show()
+def spherical(thetaValues, phiValues):
+    return sph_harm_y(L, m, thetaValues, phiValues)
     
 spherical()
