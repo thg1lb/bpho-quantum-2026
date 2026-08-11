@@ -24,8 +24,21 @@ Z = st.slider("Proton number Z", 1, 10, 6)
 A = st.slider("Mass number A", Z, 20, 12)
 
 n = st.slider("Principal quantum number n", 1, 6, 4)
-L = st.slider("Angular momentum quantum number l", 0, n - 1, min(2, n - 1))
-m = st.slider("Magnetic quantum number m", -L, L, 0)
+
+if n == 1:
+    L = 0
+    st.write("angular momentum quantum number L = 0")
+else:
+    L = st.slider(
+        "Angular momentum quantum number L", 0, n - 1, min(2, n - 1))
+
+# minor error handling
+if L == 0:
+    m = 0
+    st.write("magnetic quant num m = 0")
+
+else:
+    m = st.slider("Magnetic quantum number m", -L, L, 0)
 
 theta = np.linspace(0, np.pi, 200) 
 phi = np.linspace(0, 2*np.pi, 200)
@@ -51,7 +64,17 @@ def radial(rValues):
 
 
 def spherical(thetaValues, phiValues):
-    return sph_harm_y(L, m, thetaValues, phiValues)
+    
+    if m < 0:
+        return(sph_harm_y(L, abs(m), thetaValues, phiValues) - (sph_harm_y(L, -abs(m), thetaValues, phiValues)))
+    
+    elif m ==0:
+        return sph_harm_y(L, 0, thetaValues, phiValues)
+    
+    else:
+        return(sph_harm_y(L, m, thetaValues, phiValues) + sph_harm_y(L, -m, thetaValues, phiValues))
+   
+    
 
 axis = np.linspace(-4, 4, 500)
 
@@ -69,7 +92,11 @@ Y = spherical(thetaGrid, phiGrid)
 
 psi = R * Y
 probDensity = np.abs(psi)**2
-probDensity /= np.max(probDensity)
+
+maxDensity = np.max(probDensity)
+
+if maxDensity > 0:
+    probDensity /= maxDensity
 
 fig, ax = plt.subplots()
 
