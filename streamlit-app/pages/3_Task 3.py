@@ -4,8 +4,6 @@ import streamlit as st
 
 # Task 3: Plot the Planck spectrum B(lamda,T) and Einstein’s model of the heat capacity C of solids.
 
-
-
 # constant definitions
 kb = 1.381e-23
 h = 6.626e-34
@@ -50,7 +48,7 @@ def einsteinModel():
     # loop through materials and calculate 
     for material, f_E in einsteinFreqs.items():
         
-        # formulae from BPho CompPhys slides 
+        # formulae from BPhO CompPhys slides 
         x = ((h)*f_E)/(kb*temps)
         C = ((3*R)*(x**2)*(np.exp(x)))/((np.exp(x) - 1)**2)
         
