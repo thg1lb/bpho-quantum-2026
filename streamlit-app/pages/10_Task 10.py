@@ -5,20 +5,24 @@ from math import factorial
 from scipy.special import sph_harm_y
 import streamlit as st
 
+# Challenge #10: Hydrogenic orbitals. Use the mathematical recipe (see the next few
+# slides) for the wavefunctions of a Hydrogenic atom (i.e. one electron, Z protons) to
+# plot maps of probability density, given quantum numbers n, l, m.
+
+st.subheader("3D Hydrogenic Orbital Probability Density")
+
+st.caption(
+    "The hydrogenic wavefunction is evaluated throughout three-dimensional space. "
+    "Only points above the selected relative probability-density threshold are "
+    "displayed to make the orbital structure visible."
+)
+
 # constants
 e0 = 8.8418782e-12
 e = 1.602176620898e-19
 h = 6.626e-34
 mE = 9.1094e-31
 u = 1.66053906660e-27
-
-# # test values using Carbon-12 from slides
-# r = np.linspace(0, 4, 1000) # radius in angstroms
-# Z = 6 # proton number
-# A = 12 # atomic mass in u
-# n = 4 # principal quantum number
-# L = 2 # angular momentum quantum number
-# m = 0 # magnetic quantum number
 
 Z = st.sidebar.slider("Proton number Z", 1, 10, 6)
 A = st.sidebar.slider("Mass number A", Z, 20, 12)

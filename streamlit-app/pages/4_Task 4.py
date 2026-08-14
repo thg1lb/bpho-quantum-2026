@@ -2,7 +2,14 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
-st.title("Task 4: Plot stopping voltage vs frequency in Hz (or in-vacuum wavelength in nm) of incident photons for various metals.")
+# Task 4: Plot stopping voltage vs frequency in Hz (or in-vacuum wavelength in nm) of incident photons for various metals
+
+st.subheader("Photoelectric Effect")
+
+st.caption(
+    "Above the threshold frequency, increasing the incident photon frequency "
+    "increases the maximum photoelectron energy and therefore the stopping voltage."
+)
 
 fig, ax = plt.subplots()
 

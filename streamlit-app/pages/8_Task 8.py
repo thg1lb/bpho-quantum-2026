@@ -2,18 +2,25 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
-st.title("Challenge #8: Create a visual calculator (e.g. some form of GUI or app – although a spreadsheet will suffice) of the Classical and Quantum mismatch probabilities, with the angles theta and phi as variables.")
+# Challenge #8: Create a visual calculator (e.g. some form of GUI or app – although a spreadsheet will suffice) of the Classical and Quantum mismatch probabilities, with the angles theta and phi as variables
+
+st.subheader("Polarised Photon Detection Probabilities")
+
+st.caption(
+    "Changing the relative detector orientations changes the predicted match "
+    "and mismatch probabilities, allowing the classical and quantum predictions "
+    "to be compared."
+)
 
 fig, ax = plt.subplots()
 
-theta = st.slider("theta / degrees", min_value=-90.0, max_value=90.0, value=-30.0, step=1.0)
-phi = st.slider("phi / degrees", min_value=-90.0, max_value=90.0, value=30.0, step=1.0)
+theta = st.sidebar.slider("theta / degrees", min_value=-90.0, max_value=90.0, value=-30.0, step=1.0)
+phi = st.sidebar.slider("phi / degrees", min_value=-90.0, max_value=90.0, value=30.0, step=1.0)
 
 thetaRadians = np.radians(theta)
 phiRadians = np.radians(phi)
 
-
-# classical probability equation setup
+# equation shortcuts
 cosSquaredTheta = (np.cos(thetaRadians))**2
 cosSquaredPhi = (np.cos(phiRadians))**2
 

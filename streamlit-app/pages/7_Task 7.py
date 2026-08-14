@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 
-st.title("Task 7: energy vs quantum number n, and probability densities vs x, for wavefunctions for a ‘particle in a box.’")
+# Task 7: energy vs quantum number n, and probability densities vs x, for wavefunctions for a ‘particle in a box.’
 
 fig1, ax1 = plt.subplots()
 fig2, ax2 = plt.subplots()
@@ -10,7 +10,7 @@ fig2, ax2 = plt.subplots()
 e = 1.602176620898e-19
 m = 9.1094e-31
 h = 6.626e-34
-a = 0.529e-10 # roughly from graph (Bohr radius) --> verify number
+a = 0.529e-10 # roughly from graph (Bohr radius)
 hbar = h/(2*np.pi)
 n = np.array([1, 2, 3])   
 x = np.linspace(0, a, 1000)
@@ -28,6 +28,12 @@ def energyVsQuantum():
     ax1.set_xlim(0, 3)
     ax1.set_ylim(0, None)
         
+    st.subheader("Particle in a Box: Quantised Energy Levels")
+
+    st.caption(
+        "Only discrete energy levels are permitted inside the infinite potential well, "
+        "with energy increasing as the square of the quantum number n."
+    )    
     st.pyplot(fig1)
     
 def probabilityVsX():
@@ -41,6 +47,12 @@ def probabilityVsX():
         ax2.set_xlabel("x / angstroms")
         ax2.set_ylabel("Probability density")
     
+    st.subheader("Particle in a Box: Probability Density")
+
+    st.caption(
+        "The probability density |ψ|² describes where the confined particle is most "
+        "likely to be detected, with zero probability at the walls of the box."
+    )
     st.pyplot(fig2)
     
 probabilityVsX()

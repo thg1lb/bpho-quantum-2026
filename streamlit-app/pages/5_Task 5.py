@@ -1,8 +1,14 @@
 import streamlit as st
 import matplotlib.pyplot as plt
-import numpy as np
 
-st.title("Task 5: a graph of photon energy vs wavelength for photon emissions from hydrogen atoms due to transitions between electron energy levels.")
+# Task 5: a graph of photon energy vs wavelength for photon emissions from hydrogen atoms due to transitions between electron energy levels
+
+st.subheader("Hydrogen Emission Spectrum")
+
+st.caption(
+    "Transitions between quantised hydrogen energy levels release photons with "
+    "discrete energies and wavelengths, producing the hydrogen emission spectrum."
+)
 
 # constant definitions
 e0 = 8.8418782e-12

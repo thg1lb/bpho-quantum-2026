@@ -8,14 +8,19 @@ import math
 # theta from the horizontal chosen from a uniform distribution between 0 and
 # 2pi radians.
 
-st.title("Task 1: Random walk model")
+st.subheader("2D Random Walk")
 
-walks = st.slider("The number of walks", min_value=1, max_value=50, value=5)
+st.caption(
+    "Each step is taken in a randomly generated direction, producing an "
+    "irregular two-dimensional path from the particle's starting position."
+)
 
-n = st.slider("The number of steps", min_value=10, max_value=5000, value=500, step=10)
+# sliders to vary walk pattern
+walks = st.sidebar.slider("The number of walks", min_value=1, max_value=50, value=5)
+n = st.sidebar.slider("The number of steps", min_value=10, max_value=5000, value=500, step=10)
+s = st.sidebar.slider("The step size", min_value=0.1, max_value=5.0, value=1.0, step=0.1)
 
-s = st.slider("The step size", min_value=0.1, max_value=5.0, value=1.0, step=0.1)
-
+# arrays to hold x/y positions
 xPositions = [0]
 yPositions = [0]
 
@@ -52,7 +57,8 @@ while w > 0:
 
     ax.plot(xPositions, yPositions)
     w -= 1
-    
+
+# graphing
 ax.set_title("Model of a random walk of N steps of size s.")
 ax.set_xlabel("x-displacement")
 ax.set_ylabel("y-displacement")

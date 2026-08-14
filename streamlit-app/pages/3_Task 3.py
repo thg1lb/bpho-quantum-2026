@@ -2,7 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
 
-st.title("Task 3: Plot the Planck spectrum B(lamda,T) and Einstein’s model of the heat capacity C of solids.")
+# Task 3: Plot the Planck spectrum B(lamda,T) and Einstein’s model of the heat capacity C of solids.
+
+
 
 # constant definitions
 kb = 1.381e-23
@@ -12,6 +14,7 @@ R = 8.314
 
 fig1, ax1 = plt.subplots()
 fig2, ax2 = plt.subplots()
+
 
 def planckSpectrum():
         
@@ -29,8 +32,6 @@ def planckSpectrum():
             ax1.set_xlabel("Wavelength / nm")
             ax1.set_ylabel("Irradiance / Wm^-2 / nm")
             ax1.legend() 
-        
-    
     
 def einsteinModel():
      
@@ -49,15 +50,33 @@ def einsteinModel():
     # loop through materials and calculate 
     for material, f_E in einsteinFreqs.items():
         
-        # formulae from BPho CompPhys slides (may need to fix vars)
+        # formulae from BPho CompPhys slides 
         x = ((h)*f_E)/(kb*temps)
         C = ((3*R)*(x**2)*(np.exp(x)))/((np.exp(x) - 1)**2)
         
         ax2.plot(temps, C, label=material)
+        ax2.set_xlabel("Temperature / K")
+        ax2.set_ylabel("Heat capacity / J mol$^{-1}$ K$^{-1}$")
+        ax2.legend()
     
 planckSpectrum()
-einsteinModel()    
+st.subheader("Planck Spectrum at Different Temperatures")
 
+st.caption(
+    "Increasing the black-body temperature increases the spectral radiance "
+    "and shifts the peak towards shorter wavelengths."
+)
 st.pyplot(fig1)
+
+
+einsteinModel()  
+st.subheader("Einstein Model of Heat Capacity")
+
+st.caption(
+    "As temperature increases, the heat capacities approach the classical "
+    "Dulong-Petit limit of 3R. Different Einstein frequencies determine how "
+    "quickly each material approaches this limit."
+)
+
 st.pyplot(fig2)
 

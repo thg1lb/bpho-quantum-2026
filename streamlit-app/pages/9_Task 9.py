@@ -1,12 +1,11 @@
 import streamlit as st
 import matplotlib.pyplot as plt, numpy as np
 
-st.title("Task 9: Compton Scattering. Plot fractional wavelength shift , election recoil speed v and electron recoil angle  vs photon scattering angle .")
+# Task 9: Compton Scattering. Plot fractional wavelength shift , election recoil speed v and electron recoil angle  vs photon scattering angle 
 
 fig1, ax1 = plt.subplots()
 fig2, ax2 = plt.subplots()
 fig3, ax3 = plt.subplots()
-
 
 # constant definitions
 e = 1.602176620898e-19
@@ -66,6 +65,26 @@ for energy in energiesKev:
     ax3.set_ylabel("Electron recoil angle phi / degrees")
     ax3.legend()
     
+st.subheader("Compton Scattering: Fractional Wavelength Shift")
+
+st.caption(
+    "The wavelength of the scattered photon changes with scattering angle as "
+    "energy and momentum are transferred to the electron."
+)
 st.pyplot(fig1)
+
+st.subheader("Compton Scattering: Electron Recoil Velocity")
+
+st.caption(
+    "The electron recoil velocity varies with photon scattering angle as momentum "
+    "is transferred from the incident photon to the electron."
+)
 st.pyplot(fig2)
+
+st.subheader("Compton Scattering: Electron Recoil Angle")
+
+st.caption(
+    "The electron recoil direction varies with photon scattering angle according "
+    "to conservation of momentum."
+)
 st.pyplot(fig3)
