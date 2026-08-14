@@ -20,16 +20,16 @@ u = 1.66053906660e-27
 # L = 2 # angular momentum quantum number
 # m = 0 # magnetic quantum number
 
-Z = st.slider("Proton number Z", 1, 10, 6)
-A = st.slider("Mass number A", Z, 20, 12)
+Z = st.sidebar.slider("Proton number Z", 1, 10, 6)
+A = st.sidebar.slider("Mass number A", Z, 20, 12)
 
-n = st.slider("Principal quantum number n", 1, 6, 4)
+n = st.sidebar.slider("Principal quantum number n", 1, 6, 4)
 
 if n == 1:
     L = 0
     st.write("angular momentum quantum number L = 0")
 else:
-    L = st.slider(
+    L = st.sidebar.slider(
         "Angular momentum quantum number L", 0, n - 1, min(2, n - 1))
 
 # minor error handling
@@ -38,7 +38,7 @@ if L == 0:
     st.write("magnetic quant num m = 0")
 
 else:
-    m = st.slider("Magnetic quantum number m", -L, L, 0)
+    m = st.sidebar.slider("Magnetic quantum number m", -L, L, 0)
 
 theta = np.linspace(0, np.pi, 200) 
 phi = np.linspace(0, 2*np.pi, 200)
@@ -110,3 +110,57 @@ ax.set_title("z = .... etc")
 fig.colorbar(mesh, ax=ax)
 
 st.pyplot(fig)
+
+# 3D visualisation
+
+axis3D = np.linspace(-1, 4, 60)
+
+x3D, y3D, z3D = np.meshgrid(axis3D, axis3D, axis3D, indexing="ij")
+
+r3D = np.sqrt(x3D**2 + y3D**2 + z3D**2)
+
+theta3D = np.arccos(np.divide(z3D, r3D, out=np.zeros_like(r3D), where=r3D != 0)) 
+
+phi3D = np.mod(np.arctan2(y3D, x3D), 2*np.pi)
+
+# 3D wavefunction
+
+R3D = radial(r3D)
+Y3D = spherical(theta3D, phi3D)
+
+psi3D = R3D * Y3D
+prob3D = np.abs(psi3D)**2
+
+max3D = np.max(prob3D)
+
+if max3D > 0:
+    prob3D /= max3D
+    
+threshold = st.sidebar.slider("3D probability density threshold", 0.1, 0.9, 0.3, 0.05)
+st.sidebar.caption("Only regions with probability density above this fraction of the maximum density are displayed.")
+mask = prob3D >= threshold
+
+fig3D = plt.figure()
+ax3D = fig3D.add_subplot(111, projection="3d")
+
+scatter = ax3D.scatter(
+    x3D[mask],
+    y3D[mask],
+    z3D[mask],
+    c=prob3D[mask],
+    s=8,
+    alpha=0.6
+)
+
+ax3D.set_xlabel("x / angstroms")
+ax3D.set_ylabel("y / angstroms")
+ax3D.set_zlabel("z / angstroms")
+ax3D.set_box_aspect((1, 1, 1))
+
+ax3D.set_title(
+    f"3D probability density | n={n}, L={L}, m={m}"
+)
+
+fig3D.colorbar(scatter, ax=ax3D)
+
+st.pyplot(fig3D)
