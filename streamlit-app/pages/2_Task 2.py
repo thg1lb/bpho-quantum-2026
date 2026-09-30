@@ -3,6 +3,7 @@ import time
 from matplotlib.patches import Circle
 import numpy as np
 import matplotlib.pyplot as plt
+from io import BytesIO
 
 #TASK #2: Consider N small particles of mass m and radius r moving randomly, and one large particle of mass M and radius R. Determine the motion of the large particle if it starts from rest. Ideally animate it!
 
@@ -164,10 +165,12 @@ if st.button("Start sim"):
         trailArray = np.array(trail)
         trailLine.set_data(trailArray[:,0], trailArray[:,1])
         
-        # redraws simulation frame
-        # redraw simulation frame in Streamlit
-        fig.canvas.draw()
-        placeholder.pyplot(fig, clear_figure=False, use_container_width=True)
+        # redraws simulation frame as png
+        buffer = BytesIO()
+        fig.savefig(buffer, format="png", bbox_inches="tight")
+        buffer.seek(0)
+
+        placeholder.image(buffer.getvalue())
 
         time.sleep(0.02)
 
