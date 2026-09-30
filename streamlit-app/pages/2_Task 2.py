@@ -16,7 +16,7 @@ st.caption(
 
 st.info(
     "For some reason when moving everything to streamlit the animation rendering did not transfer properly."
-    "The frames render extremely slowly to streamlit, despite rendering correctly in matplotlib. The trail may still be visible with"
+    "The frames render extremely slowly to streamlit, despite rendering correctly in matplotlib. The trail may still be visible with "
     "some patience, but I apologise for the mishap. -thg1lb"
 )
 
