@@ -170,7 +170,7 @@ if st.button("Start sim"):
         fig.savefig(buffer, format="png", bbox_inches="tight")
         buffer.seek(0)
 
-        placeholder.image(buffer.getvalue())
+        placeholder.write(f"Frame: {frame}")
 
         time.sleep(0.02)
 
