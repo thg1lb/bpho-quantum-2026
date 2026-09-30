@@ -1,5 +1,5 @@
 # BPhO Computational Challenge 2026 Submission
-> ***d-day: 14th august 2026***
+> ***readme pending beautification***
 
 ## completed (AND in streamlit):
 - task 1
@@ -16,4 +16,4 @@
 ## abandoned
 - task 7 (latex writeup)
 
-### Number of hours committed (so far): ~60
+### Number of hours committed: ~60
