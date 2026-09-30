@@ -165,8 +165,11 @@ if st.button("Start sim"):
         trailLine.set_data(trailArray[:,0], trailArray[:,1])
         
         # redraws simulation frame
-        placeholder.pyplot(fig, clear_figure=False)
-        time.sleep(0.02) # small delay to help animation
+        # redraw simulation frame in Streamlit
+        fig.canvas.draw()
+        placeholder.pyplot(fig, clear_figure=False, use_container_width=True)
+
+        time.sleep(0.02)
 
 # allows user to reset simulation if needed
 if st.button("Reset"):
